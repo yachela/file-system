@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Folder implements SystemElement {
 
@@ -13,6 +14,10 @@ public class Folder implements SystemElement {
         this.systemElements = new ArrayList<>();
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void saveFile(File aFile) {
         this.systemElements.add(aFile);
     }
@@ -20,13 +25,13 @@ public class Folder implements SystemElement {
 
     @Override
     public int getSize() {
-        return this.systemElements.stream()
-                .mapToInt(SystemElement::getSize)
-                .sum();
+        return this.systemElements.stream().mapToInt(SystemElement::getSize).sum();
     }
 
     @Override
     public String getPath() {
-        return "/" + this.name;
+        this.systemElements.stream()
+                .map(SystemElement::getPath);
+                return "/" + this.name;
     }
 }
