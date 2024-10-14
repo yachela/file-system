@@ -9,7 +9,6 @@ public class File implements SystemElement {
         this.name = name;
         this.fileSize= fileSize;
     }
-
     public String getName() {
         return name;
     }
@@ -22,13 +21,10 @@ public class File implements SystemElement {
     public void setType(String type) {
         this.type = type;
     }
-
-
     @Override
     public int getSize() {
         return this.fileSize;
     }
-
     @Override
     public String getPath() {
         return "/" + this.name + "." + this.type;
